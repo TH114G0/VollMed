@@ -44,14 +44,6 @@ Para compilar o projeto, execute o comando:
 ./mvnw clean package
 ```
 
-## Executar a Aplicação
-
-Após a construção do projeto, execute a aplicação com o comando:
-
-```bash
-java -jar target/userAPI-0.0.1-snapshot.jar
-```
-
 ## Acessar o Swagger
 
 A documentação interativa da API pode ser acessada no seguinte endereço:
