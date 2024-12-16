@@ -6,9 +6,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
-import voll.med.api.dto.DoctorDTO;
-import voll.med.api.dto.DoctorListDataDTO;
-import voll.med.api.dto.MedicalUpdateDataDTO;
+import voll.med.api.dto.doctor.DoctorDTO;
+import voll.med.api.dto.doctor.DoctorListDataDTO;
+import voll.med.api.dto.doctor.MedicalUpdateDataDTO;
 import voll.med.api.service.DoctorService;
 
 @RestController

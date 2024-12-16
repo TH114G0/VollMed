@@ -5,10 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import voll.med.api.dto.DoctorDTO;
-import voll.med.api.dto.DoctorListDataDTO;
-import voll.med.api.dto.MedicalUpdateDataDTO;
-import voll.med.api.entiy.DoctorEntity;
+import voll.med.api.dto.doctor.DoctorDTO;
+import voll.med.api.dto.doctor.DoctorListDataDTO;
+import voll.med.api.dto.doctor.MedicalUpdateDataDTO;
+import voll.med.api.entiy.doctor.DoctorEntity;
 import voll.med.api.repository.DoctorRepository;
 
 import java.util.Optional;
