@@ -1,10 +1,11 @@
-package voll.med.api.dto;
+package voll.med.api.dto.doctor;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-import voll.med.api.entiy.Specialty;
+import voll.med.api.dto.address.AddressDTO;
+import voll.med.api.entiy.doctor.Specialty;
 
 public record DoctorDTO(
 

@@ -1,4 +1,4 @@
-package voll.med.api.dto;
+package voll.med.api.dto.address;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

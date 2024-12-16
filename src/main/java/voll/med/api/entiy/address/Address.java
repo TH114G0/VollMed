@@ -1,11 +1,11 @@
-package voll.med.api.entiy;
+package voll.med.api.entiy.address;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import voll.med.api.dto.AddressDTO;
+import voll.med.api.dto.address.AddressDTO;
 
 @Embeddable
 @Getter
@@ -29,13 +29,27 @@ public class Address {
     private String complement;
 
     public Address(AddressDTO addressDTO) {
-        this.street = addressDTO.street();
-        this.neighborhood = addressDTO.neighborhood();
-        this.postalCode = addressDTO.postalCode();
-        this.city = addressDTO.city();
-        this.state = addressDTO.state();
-        this.number = addressDTO.number();
-        this.complement = addressDTO.complement();
+        if (addressDTO.street() != null) {
+            this.street = addressDTO.street();
+        }
+        if (addressDTO.neighborhood() != null) {
+            this.neighborhood = addressDTO.neighborhood();
+        }
+        if (addressDTO.postalCode() != null) {
+            this.postalCode = addressDTO.postalCode();
+        }
+        if (addressDTO.city() != null) {
+            this.city = addressDTO.city();
+        }
+        if (addressDTO.state() != null) {
+            this.state = addressDTO.state();
+        }
+        if (addressDTO.number() != null) {
+            this.number = addressDTO.number();
+        }
+        if (addressDTO.complement() != null) {
+            this.complement = addressDTO.complement();
+        }
     }
 
     public void update(AddressDTO addressDTO) {

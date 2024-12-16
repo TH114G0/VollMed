@@ -1,9 +1,10 @@
-package voll.med.api.entiy;
+package voll.med.api.entiy.doctor;
 
 import jakarta.persistence.*;
 import lombok.*;
-import voll.med.api.dto.DoctorDTO;
-import voll.med.api.dto.MedicalUpdateDataDTO;
+import voll.med.api.dto.doctor.DoctorDTO;
+import voll.med.api.dto.doctor.MedicalUpdateDataDTO;
+import voll.med.api.entiy.address.Address;
 
 @Entity
 @Table(name = "doctors")
