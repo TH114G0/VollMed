@@ -17,3 +17,7 @@ spring:
   properties:
     hibernate:
       dialect: org.hibernate.dialect.MariaDBDialect
+
+  server:
+    error:
+      include-stacktrace: never
