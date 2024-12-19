@@ -1,10 +1,12 @@
-package voll.med.api.entiy.patient;
+package voll.med.api.domain.patient;
 
 import jakarta.persistence.*;
 import lombok.*;
 import voll.med.api.dto.patient.PatientDTO;
 import voll.med.api.dto.patient.PatientUpdateDataDTO;
-import voll.med.api.entiy.address.Address;
+import voll.med.api.domain.address.Address;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "patients")
@@ -30,6 +32,8 @@ public class PatientEntity {
 
     private Boolean active;
 
+    private LocalDateTime deleteAt;
+
     public PatientEntity(PatientDTO patientDTO) {
         this.name = patientDTO.name();
         this.email = patientDTO.email();
@@ -50,5 +54,6 @@ public class PatientEntity {
 
     public void delete() {
         this.active = false;
+        this.deleteAt = LocalDateTime.now();
     }
 }
