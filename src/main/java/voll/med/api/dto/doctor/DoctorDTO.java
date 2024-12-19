@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import voll.med.api.dto.address.AddressDTO;
-import voll.med.api.entiy.doctor.Specialty;
+import voll.med.api.domain.doctor.Specialty;
 
 public record DoctorDTO(
 
