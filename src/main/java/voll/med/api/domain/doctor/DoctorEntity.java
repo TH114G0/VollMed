@@ -1,10 +1,12 @@
-package voll.med.api.entiy.doctor;
+package voll.med.api.domain.doctor;
 
 import jakarta.persistence.*;
 import lombok.*;
 import voll.med.api.dto.doctor.DoctorDTO;
 import voll.med.api.dto.doctor.MedicalUpdateDataDTO;
-import voll.med.api.entiy.address.Address;
+import voll.med.api.domain.address.Address;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "doctors")
@@ -35,6 +37,8 @@ public class DoctorEntity {
     @Embedded
     private Address address;
 
+    private LocalDateTime deleteAt;
+
     public DoctorEntity(DoctorDTO doctorDTO) {
         this.name = doctorDTO.name();
         this.email = doctorDTO.email();
@@ -59,5 +63,6 @@ public class DoctorEntity {
 
     public void delete() {
         this.active = false;
+        this.deleteAt = LocalDateTime.now();
     }
 }
