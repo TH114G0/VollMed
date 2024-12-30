@@ -1,5 +1,6 @@
 package voll.med.api.service;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,7 +11,6 @@ import voll.med.api.dto.patient.PatientDTO;
 import voll.med.api.dto.patient.PatientListDataDTO;
 import voll.med.api.dto.patient.PatientUpdateDataDTO;
 import voll.med.api.dto.patient.UpdatePatientDataDTO;
-import voll.med.api.exception.PatientNotFoundException;
 import voll.med.api.repository.PatientRepository;
 
 @Service
@@ -30,7 +30,7 @@ public class PatientService {
     @Transactional
     public UpdatePatientDataDTO update(PatientUpdateDataDTO patientUpdateDataDTO) {
         var patientEntity = patientRepository.findById(patientUpdateDataDTO.id())
-                .orElseThrow(() -> new PatientNotFoundException("ID - " + patientUpdateDataDTO.id() + " não encontrado"));
+                .orElseThrow(() -> new EntityNotFoundException("ID - " + patientUpdateDataDTO.id() + " não encontrado"));
         patientEntity.update(patientUpdateDataDTO);
         return new UpdatePatientDataDTO(patientEntity);
     }
@@ -38,13 +38,13 @@ public class PatientService {
     @Transactional
     public void delete(Long id) {
         var patientEntity = patientRepository.findById(id)
-                .orElseThrow(() -> new PatientNotFoundException("ID - " + id + " não encontrado"));
+                .orElseThrow(() -> new EntityNotFoundException("ID - " + id + " não encontrado"));
         patientEntity.delete();
     }
 
     public UpdatePatientDataDTO details(Long id) {
         var patientEntity = patientRepository.findById(id)
-                .orElseThrow(() -> new PatientNotFoundException("ID - " + id + " não encontrado"));
+                .orElseThrow(() -> new EntityNotFoundException("ID - " + id + " não encontrado"));
         return new UpdatePatientDataDTO(patientEntity);
     }
 }

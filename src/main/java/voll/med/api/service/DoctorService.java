@@ -1,5 +1,6 @@
 package voll.med.api.service;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,7 +11,6 @@ import voll.med.api.dto.doctor.DoctorDTO;
 import voll.med.api.dto.doctor.DoctorListDataDTO;
 import voll.med.api.dto.doctor.MedicalUpdateDataDTO;
 import voll.med.api.dto.doctor.UpdateDoctorDataDTO;
-import voll.med.api.exception.DoctorNotFoundException;
 import voll.med.api.repository.DoctorRepository;
 
 @Service
@@ -30,7 +30,7 @@ public class DoctorService {
     @Transactional
     public UpdateDoctorDataDTO update(MedicalUpdateDataDTO medicalUpdateDataDTO) {
         var doctorEntity = doctorRepository.findById(medicalUpdateDataDTO.id())
-                .orElseThrow(() -> new DoctorNotFoundException("ID - " + medicalUpdateDataDTO.id() + " não encontrado"));
+                .orElseThrow(() -> new EntityNotFoundException("ID - " + medicalUpdateDataDTO.id() + " não encontrado"));
         doctorEntity.update(medicalUpdateDataDTO);
         return new UpdateDoctorDataDTO(doctorEntity);
     }
@@ -38,13 +38,13 @@ public class DoctorService {
     @Transactional
     public void delete(Long id) {
         var doctorEntity = doctorRepository.findById(id)
-                .orElseThrow(() -> new DoctorNotFoundException("ID - " + id + " não encontrado"));
+                .orElseThrow(() -> new EntityNotFoundException("ID - " + id + " não encontrado"));
         doctorEntity.delete();
     }
 
     public UpdateDoctorDataDTO details(Long id) {
         var doctorEntity = doctorRepository.findById(id)
-                .orElseThrow(() -> new DoctorNotFoundException("ID - " + id + " não encontrado"));
+                .orElseThrow(() -> new EntityNotFoundException("ID - " + id + " não encontrado"));
         return new UpdateDoctorDataDTO(doctorEntity);
     }
 }
